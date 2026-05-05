@@ -1,0 +1,2043 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta
+    name="description"
+    content="Nandhakumar P is a Python developer building backend systems, FastAPI services, and AI-powered applications."
+  />
+  <meta
+    name="keywords"
+    content="Nandhakumar P, Python Developer, FastAPI, Django, AI Engineer, Backend Developer, Portfolio"
+  />
+  <meta name="author" content="Nandhakumar P" />
+  <meta property="og:title" content="Nandhakumar P | Python Developer" />
+  <meta
+    property="og:description"
+    content="Backend engineering, API development, and AI-powered product systems by Nandhakumar P."
+  />
+  <meta property="og:type" content="website" />
+  <title>Nandhakumar P | Python Developer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=DM+Sans:wght@300;400;500;700&display=swap"
+    rel="stylesheet"
+  />
+  <style>
+    :root {
+      --bg: #0d0d0f;
+      --surface: #13131a;
+      --surface-2: #1b1b24;
+      --surface-3: #222230;
+      --gold: #c9a84c;
+      --gold-light: #ecd48f;
+      --gold-dim: rgba(201, 168, 76, 0.12);
+      --text: #ebe8e1;
+      --muted: #9d9991;
+      --border: rgba(201, 168, 76, 0.18);
+      --success: #79d9a2;
+      --shadow: 0 28px 60px rgba(0, 0, 0, 0.38);
+      --radius: 24px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background:
+        radial-gradient(circle at top right, rgba(201, 168, 76, 0.08), transparent 30%),
+        linear-gradient(180deg, #0d0d0f 0%, #101015 100%);
+      color: var(--text);
+      font-family: "DM Sans", sans-serif;
+      font-weight: 300;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.35;
+      z-index: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+    }
+
+    a {
+      color: inherit;
+    }
+
+    img {
+      max-width: 100%;
+    }
+
+    section {
+      position: relative;
+      z-index: 1;
+      padding: 7rem 5%;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      font-size: 0.72rem;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1rem;
+    }
+
+    .section-title {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(2rem, 4vw, 3.1rem);
+      line-height: 1.15;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+
+    .section-copy {
+      color: var(--muted);
+      max-width: 620px;
+      margin-bottom: 2rem;
+    }
+
+    .divider {
+      width: 52px;
+      height: 1px;
+      background: var(--gold);
+      margin-bottom: 3rem;
+    }
+
+    .skip-link {
+      position: absolute;
+      left: -999px;
+      top: 1rem;
+      background: var(--gold);
+      color: #111;
+      padding: 0.75rem 1rem;
+      z-index: 400;
+    }
+
+    .skip-link:focus {
+      left: 1rem;
+    }
+
+    nav {
+      position: fixed;
+      inset: 0 0 auto 0;
+      z-index: 200;
+      padding: 1.2rem 5%;
+      border-bottom: 1px solid var(--border);
+      background: rgba(13, 13, 15, 0.86);
+      backdrop-filter: blur(16px);
+    }
+
+    .nav-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+    }
+
+    .nav-logo {
+      font-family: "Playfair Display", serif;
+      font-size: 1.1rem;
+      letter-spacing: 0.04em;
+      color: var(--gold-light);
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .nav-toggle {
+      display: none;
+      border: 1px solid var(--border);
+      background: transparent;
+      color: var(--text);
+      padding: 0.55rem 0.8rem;
+      font-size: 0.78rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      cursor: pointer;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--muted);
+      font-size: 0.78rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      transition: color 0.25s ease;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--gold-light);
+    }
+
+    #hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding-top: 7.5rem;
+      overflow: hidden;
+    }
+
+    .hero-bg-lines,
+    .hero-glow,
+    .hero-glow-2 {
+      position: absolute;
+      pointer-events: none;
+    }
+
+    .hero-bg-lines {
+      inset: 0;
+      opacity: 0.22;
+      background:
+        linear-gradient(90deg, transparent 49.5%, var(--border) 50%, transparent 50.5%),
+        linear-gradient(180deg, transparent 49.5%, var(--border) 50%, transparent 50.5%);
+      background-size: 84px 84px;
+    }
+
+    .hero-glow {
+      top: 8%;
+      right: -10%;
+      width: 680px;
+      height: 680px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(201, 168, 76, 0.1), transparent 68%);
+    }
+
+    .hero-glow-2 {
+      bottom: 0;
+      left: -10%;
+      width: 420px;
+      height: 420px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(201, 168, 76, 0.06), transparent 70%);
+    }
+
+    .hero-grid {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(320px, 0.8fr);
+      gap: 3rem;
+      align-items: end;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-eyebrow {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      font-size: 0.72rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.3rem;
+    }
+
+    .hero-eyebrow::before {
+      content: "";
+      width: 32px;
+      height: 1px;
+      background: var(--gold);
+    }
+
+    .available-dot {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--success);
+      letter-spacing: 0.12em;
+      font-size: 0.68rem;
+    }
+
+    .available-dot::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--success);
+      box-shadow: 0 0 10px var(--success);
+      animation: pulse-dot 2s infinite;
+    }
+
+    .hero-title {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(3rem, 7vw, 6.4rem);
+      line-height: 1.02;
+      font-weight: 700;
+      margin-bottom: 0.8rem;
+    }
+
+    .hero-title em {
+      color: var(--gold-light);
+      font-style: italic;
+      font-weight: 600;
+    }
+
+    .hero-subtitle {
+      color: var(--text);
+      font-size: clamp(1rem, 2vw, 1.35rem);
+      margin-bottom: 1.3rem;
+      max-width: 720px;
+    }
+
+    .hero-desc {
+      color: var(--muted);
+      max-width: 610px;
+      font-size: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .hero-cta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-bottom: 2.4rem;
+    }
+
+    .btn-primary,
+    .btn-outline,
+    .btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.45rem;
+      min-height: 48px;
+      padding: 0.9rem 1.4rem;
+      text-decoration: none;
+      font-size: 0.8rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      transition: transform 0.22s ease, background 0.22s ease, color 0.22s ease, border-color 0.22s ease;
+    }
+
+    .btn-primary {
+      background: var(--gold);
+      color: #111;
+      border: 1px solid var(--gold);
+    }
+
+    .btn-outline {
+      border: 1px solid var(--border);
+      color: var(--text);
+    }
+
+    .btn-ghost {
+      border: 1px solid transparent;
+      color: var(--muted);
+    }
+
+    .btn-primary:hover,
+    .btn-outline:hover,
+    .btn-ghost:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-primary:hover {
+      background: var(--gold-light);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--gold);
+      color: var(--gold-light);
+    }
+
+    .btn-ghost:hover {
+      color: var(--text);
+    }
+
+    .hero-metrics {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .metric-card {
+      min-width: 148px;
+      padding: 1rem 1.1rem;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border);
+      backdrop-filter: blur(10px);
+    }
+
+    .metric-value {
+      display: block;
+      font-family: "Playfair Display", serif;
+      font-size: 1.8rem;
+      color: var(--gold-light);
+      line-height: 1;
+      margin-bottom: 0.35rem;
+    }
+
+    .metric-label {
+      color: var(--muted);
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .hero-spotlight {
+      padding: 2rem;
+      border: 1px solid var(--border);
+      background: linear-gradient(180deg, rgba(201, 168, 76, 0.08), rgba(19, 19, 26, 0.94));
+      box-shadow: var(--shadow);
+    }
+
+    .spotlight-label {
+      color: var(--gold);
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+
+    .spotlight-title {
+      font-family: "Playfair Display", serif;
+      font-size: 1.5rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .spotlight-copy {
+      color: var(--muted);
+      font-size: 0.95rem;
+      margin-bottom: 1.4rem;
+    }
+
+    .spotlight-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.9rem;
+    }
+
+    .spotlight-list li {
+      color: var(--muted);
+      padding-left: 1.1rem;
+      position: relative;
+      font-size: 0.92rem;
+    }
+
+    .spotlight-list li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.72rem;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--gold);
+    }
+
+    #about,
+    #skills,
+    #education {
+      border-top: 1px solid var(--border);
+    }
+
+    #experience,
+    #projects,
+    #contact {
+      border-top: 1px solid var(--border);
+      background: var(--surface);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    .about-right p {
+      color: var(--muted);
+      margin-bottom: 1.2rem;
+    }
+
+    .about-right strong {
+      color: var(--gold-light);
+      font-weight: 500;
+    }
+
+    .highlight-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .highlight-card {
+      padding: 1.2rem;
+      border: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    .highlight-card h3 {
+      font-size: 0.82rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.55rem;
+    }
+
+    .highlight-card p {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .about-stats {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1rem;
+      margin-top: 2.2rem;
+    }
+
+    .stat-box {
+      padding: 1.25rem;
+      border: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    .stat-num {
+      display: block;
+      font-family: "Playfair Display", serif;
+      color: var(--gold-light);
+      font-size: 2rem;
+      line-height: 1;
+      margin-bottom: 0.35rem;
+    }
+
+    .stat-label {
+      color: var(--muted);
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .exp-list {
+      border: 1px solid var(--border);
+      overflow: hidden;
+    }
+
+    .exp-item {
+      padding: 2.4rem;
+      border-bottom: 1px solid var(--border);
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.01), rgba(255, 255, 255, 0.02));
+      position: relative;
+      transition: background 0.25s ease;
+    }
+
+    .exp-item:last-child {
+      border-bottom: 0;
+    }
+
+    .exp-item:hover {
+      background: var(--surface-2);
+    }
+
+    .exp-item::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 3px;
+      background: linear-gradient(180deg, var(--gold-light), transparent);
+      opacity: 0;
+      transition: opacity 0.25s ease;
+    }
+
+    .exp-item:hover::before {
+      opacity: 1;
+    }
+
+    .exp-header {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 1.2rem;
+    }
+
+    .exp-role {
+      font-family: "Playfair Display", serif;
+      font-size: 1.3rem;
+      font-weight: 600;
+    }
+
+    .exp-company {
+      color: var(--gold);
+      font-size: 0.9rem;
+      margin-top: 0.25rem;
+    }
+
+    .exp-date {
+      color: var(--muted);
+      font-size: 0.76rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .exp-summary {
+      color: var(--muted);
+      margin-bottom: 1.4rem;
+      max-width: 760px;
+    }
+
+    .exp-projects {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .exp-project {
+      padding: 1.2rem 1.25rem;
+      border: 1px solid rgba(201, 168, 76, 0.12);
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    .exp-project-title {
+      color: var(--gold-light);
+      font-size: 0.82rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 0.55rem;
+    }
+
+    .exp-bullets {
+      list-style: none;
+      display: grid;
+      gap: 0.5rem;
+    }
+
+    .exp-bullets li {
+      color: var(--muted);
+      font-size: 0.92rem;
+      position: relative;
+      padding-left: 1rem;
+    }
+
+    .exp-bullets li::before {
+      content: "-";
+      position: absolute;
+      left: 0;
+      color: var(--gold);
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .skill-card {
+      padding: 1.8rem;
+      border: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.02);
+      transition: transform 0.22s ease, background 0.22s ease;
+    }
+
+    .skill-card:hover {
+      transform: translateY(-4px);
+      background: var(--surface-2);
+    }
+
+    .skill-icon {
+      color: var(--gold);
+      font-size: 1.3rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .skill-category {
+      font-family: "Playfair Display", serif;
+      font-size: 1.1rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+    }
+
+    .skill-tag {
+      font-size: 0.72rem;
+      padding: 0.28rem 0.72rem;
+      border: 1px solid rgba(201, 168, 76, 0.22);
+      color: var(--muted);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.2rem;
+    }
+
+    .project-card {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      padding: 1.7rem;
+      border: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.02);
+      text-decoration: none;
+      transition: transform 0.24s ease, border-color 0.24s ease, background 0.24s ease;
+      min-height: 100%;
+    }
+
+    .project-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(236, 212, 143, 0.4);
+      background: var(--surface-2);
+    }
+
+    .project-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .project-num {
+      color: var(--gold);
+      font-family: "Playfair Display", serif;
+      font-size: 1.1rem;
+      font-style: italic;
+    }
+
+    .project-link {
+      color: var(--muted);
+      font-size: 0.85rem;
+      transition: color 0.22s ease, transform 0.22s ease;
+    }
+
+    .project-card:hover .project-link {
+      color: var(--gold-light);
+      transform: translateX(3px);
+    }
+
+    .project-name {
+      font-family: "Playfair Display", serif;
+      font-size: 1.3rem;
+      line-height: 1.2;
+    }
+
+    .project-desc {
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    .project-points {
+      list-style: none;
+      display: grid;
+      gap: 0.45rem;
+    }
+
+    .project-points li {
+      color: var(--muted);
+      font-size: 0.9rem;
+      padding-left: 1rem;
+      position: relative;
+    }
+
+    .project-points li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.7rem;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--gold);
+    }
+
+    .project-stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+      margin-top: auto;
+    }
+
+    .stack-tag {
+      background: var(--gold-dim);
+      color: var(--gold-light);
+      font-size: 0.68rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 0.28rem 0.64rem;
+    }
+
+    .edu-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .edu-card {
+      border: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.02);
+      padding: 1.8rem;
+      transition: transform 0.22s ease, background 0.22s ease;
+    }
+
+    .edu-card:hover {
+      transform: translateY(-4px);
+      background: var(--surface);
+    }
+
+    .edu-degree {
+      font-family: "Playfair Display", serif;
+      font-size: 1.08rem;
+      line-height: 1.3;
+      margin-bottom: 0.55rem;
+    }
+
+    .edu-institute {
+      color: var(--gold);
+      font-size: 0.88rem;
+      margin-bottom: 0.35rem;
+    }
+
+    .edu-meta {
+      color: var(--muted);
+      font-size: 0.8rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .edu-tag {
+      display: inline-block;
+      padding: 0.24rem 0.65rem;
+      background: var(--gold-dim);
+      color: var(--gold-light);
+      font-size: 0.68rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .contact-shell {
+      max-width: 1020px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(320px, 0.9fr);
+      gap: 2rem;
+      align-items: stretch;
+    }
+
+    .contact-copy,
+    .contact-card {
+      padding: 2rem;
+      border: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    .contact-copy p {
+      color: var(--muted);
+      margin-bottom: 1.2rem;
+    }
+
+    .contact-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      margin-top: 1.6rem;
+    }
+
+    .contact-card {
+      display: grid;
+      gap: 1rem;
+      align-content: start;
+    }
+
+    .contact-item {
+      padding: 1rem 0;
+      border-bottom: 1px solid rgba(201, 168, 76, 0.12);
+    }
+
+    .contact-item:last-child {
+      border-bottom: 0;
+    }
+
+    .contact-label {
+      color: var(--gold);
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      margin-bottom: 0.35rem;
+    }
+
+    .contact-value,
+    .contact-value a {
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    .contact-value a:hover {
+      color: var(--gold-light);
+    }
+
+    .social-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.9rem;
+      margin-top: 0.4rem;
+    }
+
+    .social-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      text-decoration: none;
+      color: var(--muted);
+      font-size: 0.78rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      transition: color 0.22s ease;
+    }
+
+    .social-link:hover {
+      color: var(--gold-light);
+    }
+
+    footer {
+      position: relative;
+      z-index: 1;
+      padding: 1.8rem 5%;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 0.76rem;
+      letter-spacing: 0.08em;
+    }
+
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .back-to-top {
+      position: fixed;
+      right: 1.5rem;
+      bottom: 6.8rem;
+      width: 48px;
+      height: 48px;
+      border: 1px solid var(--border);
+      background: rgba(19, 19, 26, 0.94);
+      color: var(--text);
+      cursor: pointer;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(10px);
+      transition: opacity 0.22s ease, transform 0.22s ease, border-color 0.22s ease;
+      z-index: 230;
+    }
+
+    .back-to-top.visible {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+
+    .back-to-top:hover {
+      border-color: var(--gold);
+      color: var(--gold-light);
+    }
+
+    .chatbot-launcher {
+      position: fixed;
+      right: 1.5rem;
+      bottom: 1.5rem;
+      width: 64px;
+      height: 64px;
+      border: 1px solid rgba(201, 168, 76, 0.35);
+      border-radius: 50%;
+      background:
+        radial-gradient(circle at 30% 30%, rgba(236, 212, 143, 0.2), transparent 56%),
+        linear-gradient(135deg, rgba(201, 168, 76, 0.18), rgba(27, 27, 36, 0.98));
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: "Playfair Display", serif;
+      font-size: 1.2rem;
+      cursor: pointer;
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
+      z-index: 250;
+      animation: chatbotBlink 1.5s ease-in-out infinite;
+      transition: transform 0.22s ease, border-color 0.22s ease;
+    }
+
+    .chatbot-launcher:hover,
+    .chatbot-launcher:focus-visible {
+      transform: translateY(-2px);
+      border-color: var(--gold-light);
+      outline: none;
+    }
+
+    .chatbot-launcher[aria-expanded="true"] {
+      animation: none;
+    }
+
+    .chatbot-panel {
+      position: fixed;
+      right: 1.5rem;
+      bottom: 6.5rem;
+      width: min(390px, calc(100vw - 2rem));
+      height: min(620px, calc(100vh - 8rem));
+      border: 1px solid var(--border);
+      background: rgba(19, 19, 26, 0.97);
+      backdrop-filter: blur(18px);
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      z-index: 240;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(18px) scale(0.98);
+      transition: opacity 0.24s ease, transform 0.24s ease;
+    }
+
+    .chatbot-panel.open {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0) scale(1);
+    }
+
+    .chatbot-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 1rem;
+      border-bottom: 1px solid var(--border);
+      background: linear-gradient(180deg, rgba(201, 168, 76, 0.08), rgba(19, 19, 26, 0.25));
+    }
+
+    .chatbot-title {
+      font-family: "Playfair Display", serif;
+      color: var(--gold-light);
+      font-size: 1.05rem;
+      margin-bottom: 0.2rem;
+    }
+
+    .chatbot-subtitle {
+      color: var(--muted);
+      font-size: 0.82rem;
+      max-width: 230px;
+    }
+
+    .chatbot-close {
+      border: 1px solid transparent;
+      background: transparent;
+      color: var(--muted);
+      padding: 0.1rem 0.35rem;
+      font-size: 1.15rem;
+      cursor: pointer;
+    }
+
+    .chatbot-close:hover {
+      color: var(--gold-light);
+      border-color: var(--border);
+    }
+
+    .chatbot-messages {
+      flex: 1;
+      padding: 1rem;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+    }
+
+    .chatbot-message {
+      max-width: 88%;
+      padding: 0.9rem 1rem;
+      border: 1px solid var(--border);
+      font-size: 0.92rem;
+      line-height: 1.6;
+      white-space: pre-line;
+    }
+
+    .chatbot-message.bot {
+      align-self: flex-start;
+      background: rgba(201, 168, 76, 0.07);
+      border-left: 2px solid var(--gold);
+    }
+
+    .chatbot-message.user {
+      align-self: flex-end;
+      background: rgba(255, 255, 255, 0.04);
+      border-color: rgba(255, 255, 255, 0.08);
+    }
+
+    .chatbot-suggestions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.55rem;
+      padding: 0 1rem 1rem;
+    }
+
+    .chatbot-chip {
+      border: 1px solid var(--border);
+      background: transparent;
+      color: var(--muted);
+      padding: 0.45rem 0.7rem;
+      font-size: 0.74rem;
+      cursor: pointer;
+    }
+
+    .chatbot-chip:hover {
+      color: var(--gold-light);
+      border-color: var(--gold);
+      background: rgba(201, 168, 76, 0.08);
+    }
+
+    .chatbot-form {
+      border-top: 1px solid var(--border);
+      padding: 0.9rem;
+      background: rgba(13, 13, 15, 0.96);
+    }
+
+    .chatbot-input-row {
+      display: flex;
+      gap: 0.7rem;
+    }
+
+    .chatbot-input {
+      flex: 1;
+      min-width: 0;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(201, 168, 76, 0.15);
+      color: var(--text);
+      padding: 0.9rem 1rem;
+      font: inherit;
+    }
+
+    .chatbot-input:focus {
+      outline: none;
+      border-color: var(--gold);
+      box-shadow: 0 0 0 3px rgba(201, 168, 76, 0.08);
+    }
+
+    .chatbot-send {
+      border: 0;
+      background: var(--gold);
+      color: #111;
+      padding: 0.9rem 1.1rem;
+      cursor: pointer;
+      font-size: 0.76rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .chatbot-send:hover {
+      background: var(--gold-light);
+    }
+
+    .chatbot-hint {
+      margin-top: 0.65rem;
+      color: var(--muted);
+      font-size: 0.74rem;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(24px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes pulse-dot {
+      0%, 100% {
+        opacity: 1;
+      }
+      50% {
+        opacity: 0.45;
+      }
+    }
+
+    @keyframes chatbotBlink {
+      0%, 100% {
+        box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35), 0 0 0 0 rgba(201, 168, 76, 0.25);
+      }
+      50% {
+        box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35), 0 0 0 15px rgba(201, 168, 76, 0.05);
+      }
+    }
+
+    @media (max-width: 1080px) {
+      .hero-grid,
+      .about-grid,
+      .contact-shell {
+        grid-template-columns: 1fr;
+      }
+
+      .skills-grid,
+      .projects-grid,
+      .edu-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .about-stats {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 840px) {
+      nav {
+        padding: 1rem 5%;
+      }
+
+      .nav-toggle {
+        display: inline-flex;
+      }
+
+      .nav-links {
+        position: absolute;
+        top: calc(100% + 1px);
+        left: 5%;
+        right: 5%;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+        padding: 1rem;
+        background: rgba(13, 13, 15, 0.98);
+        border: 1px solid var(--border);
+        opacity: 0;
+        pointer-events: none;
+        transform: translateY(-8px);
+        transition: opacity 0.22s ease, transform 0.22s ease;
+      }
+
+      nav.open .nav-links {
+        opacity: 1;
+        pointer-events: auto;
+        transform: translateY(0);
+      }
+
+      .hero-title {
+        font-size: clamp(2.8rem, 14vw, 4.5rem);
+      }
+
+      .hero-cta,
+      .contact-actions {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .btn-primary,
+      .btn-outline,
+      .btn-ghost {
+        width: 100%;
+      }
+    }
+
+    @media (max-width: 640px) {
+      section {
+        padding: 5.8rem 5% 5rem;
+      }
+
+      .skills-grid,
+      .projects-grid,
+      .edu-grid,
+      .highlight-grid,
+      .about-stats {
+        grid-template-columns: 1fr;
+      }
+
+      .exp-item,
+      .contact-copy,
+      .contact-card,
+      .hero-spotlight {
+        padding: 1.4rem;
+      }
+
+      .back-to-top {
+        right: 1rem;
+        bottom: 5.8rem;
+      }
+
+      .chatbot-launcher {
+        right: 1rem;
+        bottom: 1rem;
+        width: 58px;
+        height: 58px;
+      }
+
+      .chatbot-panel {
+        left: 1rem;
+        right: 1rem;
+        width: auto;
+        bottom: 5.5rem;
+        height: min(72vh, 560px);
+      }
+
+      .chatbot-input-row {
+        flex-direction: column;
+      }
+
+      .chatbot-send {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to content</a>
+
+  <nav id="site-nav">
+    <div class="nav-inner">
+      <a class="nav-logo" href="#hero">Nandhakumar P</a>
+      <button class="nav-toggle" id="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links">
+        Menu
+      </button>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main id="main-content">
+    <section id="hero">
+      <div class="hero-bg-lines"></div>
+      <div class="hero-glow"></div>
+      <div class="hero-glow-2"></div>
+      <div class="hero-grid">
+        <div class="hero-copy" style="animation: fadeUp 0.8s ease forwards;">
+          <p class="hero-eyebrow">
+            Python Developer &middot; Bangalore, India
+            <span class="available-dot">Open to opportunities</span>
+          </p>
+          <h1 class="hero-title">Building <em>intelligent</em><br />backend products</h1>
+          <p class="hero-subtitle">
+            I design FastAPI and Django systems, production-ready APIs, and AI-powered workflows that turn business processes into reliable software.
+          </p>
+          <p class="hero-desc">
+            My recent work spans real-time voice transcription, VoIP call handling, and meeting automation. I focus on clear architecture, practical AI integration, and backend systems that are stable enough to scale.
+          </p>
+          <div class="hero-cta">
+            <a href="#projects" class="btn-primary">View Projects</a>
+            <a href="#contact" class="btn-outline">Hire Me</a>
+            <a href="mailto:nandhap095@gmail.com" class="btn-ghost">Email Directly</a>
+          </div>
+          <div class="hero-metrics">
+            <div class="metric-card">
+              <span class="metric-value">6+</span>
+              <span class="metric-label">Projects Built</span>
+            </div>
+            <div class="metric-card">
+              <span class="metric-value">3+</span>
+              <span class="metric-label">AI Systems</span>
+            </div>
+            <div class="metric-card">
+              <span class="metric-value">FastAPI</span>
+              <span class="metric-label">Backend Focus</span>
+            </div>
+          </div>
+        </div>
+
+        <aside class="hero-spotlight reveal">
+          <div class="spotlight-label">Featured Strengths</div>
+          <h2 class="spotlight-title">Backend engineering with applied AI</h2>
+          <p class="spotlight-copy">
+            I enjoy taking ambiguous product ideas and turning them into working systems with APIs, authentication, automation, and LLM or ML integrations.
+          </p>
+          <ul class="spotlight-list">
+            <li>FastAPI services for real-time workflows and integrations</li>
+            <li>Django REST systems with authentication and role-based access</li>
+            <li>Applied AI work using Whisper, YOLOv8, OpenCV, and LLM APIs</li>
+            <li>Workflow automation with Google OAuth, Calendar, and async jobs</li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container about-grid">
+        <div class="about-left reveal">
+          <p class="section-label">About Me</p>
+          <h2 class="section-title">A backend developer who likes making complex things usable</h2>
+          <div class="divider"></div>
+        </div>
+        <div class="about-right reveal">
+          <p>
+            I'm <strong>Nandhakumar P</strong>, a Python developer based in Bangalore and currently working at <strong>Lookupitsolutions, a division of Dualapp Technologies</strong>.
+          </p>
+          <p>
+            My work centers on <strong>FastAPI, Django REST Framework, authentication systems, and API-led product development</strong>. I enjoy building services that are practical in production, not just clean in theory.
+          </p>
+          <p>
+            I am especially interested in <strong>agentic AI, workflow automation, and AI/ML-enabled backend products</strong>. I like solving problems where APIs, async processing, and model integrations need to come together cleanly.
+          </p>
+
+          <div class="highlight-grid">
+            <article class="highlight-card">
+              <h3>What I Build</h3>
+              <p>REST APIs, backend services, automation workflows, and AI-powered application features.</p>
+            </article>
+            <article class="highlight-card">
+              <h3>How I Work</h3>
+              <p>Understand the problem, design the architecture, and ship stable software with clear business value.</p>
+            </article>
+          </div>
+
+          <div class="about-stats">
+            <div class="stat-box">
+              <span class="stat-num">1+</span>
+              <span class="stat-label">Years Experience</span>
+            </div>
+            <div class="stat-box">
+              <span class="stat-num">6+</span>
+              <span class="stat-label">Projects Built</span>
+            </div>
+            <div class="stat-box">
+              <span class="stat-num">3</span>
+              <span class="stat-label">AI Projects</span>
+            </div>
+            <div class="stat-box">
+              <span class="stat-num">4</span>
+              <span class="stat-label">Core Backend Areas</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience">
+      <div class="container">
+        <p class="section-label reveal">Experience</p>
+        <h2 class="section-title reveal">Building production-focused backend systems</h2>
+        <p class="section-copy reveal">
+          My current role has focused on backend services that connect APIs, authentication, telephony, and AI-assisted workflows into usable internal and client-facing systems.
+        </p>
+        <div class="divider reveal"></div>
+
+        <div class="exp-list reveal">
+          <article class="exp-item">
+            <div class="exp-header">
+              <div>
+                <div class="exp-role">Python Developer &mdash; Full Time</div>
+                <div class="exp-company">Lookupitsolutions, a division of Dualapp Technologies Pvt. Ltd &middot; Bangalore</div>
+              </div>
+              <div class="exp-date">May 2025 &mdash; Present</div>
+            </div>
+            <p class="exp-summary">
+              Working across AI-assisted product development, FastAPI backend architecture, external service integration, and scalable multi-user workflows.
+            </p>
+
+            <div class="exp-projects">
+              <div class="exp-project">
+                <div class="exp-project-title">Voice-to-Text Conversion Platform</div>
+                <ul class="exp-bullets">
+                  <li>Built a real-time transcription platform using OpenAI Whisper to convert phone-call audio into text with speaker separation.</li>
+                  <li>Developed FastAPI APIs for uploading, processing, storing, and retrieving transcription results.</li>
+                  <li>Improved transcript quality through audio preprocessing and enabled export-ready downloads for operational use.</li>
+                </ul>
+              </div>
+
+              <div class="exp-project">
+                <div class="exp-project-title">VoIP Call Handling Backend</div>
+                <ul class="exp-bullets">
+                  <li>Designed a SIP-enabled VoIP backend using FastAPI and PJSUA for call initiation, answering, and termination flows.</li>
+                  <li>Supported multiple concurrent sessions with careful resource handling and lower-latency audio transmission.</li>
+                  <li>Focused on reliability, API clarity, and performance for real-time communication scenarios.</li>
+                </ul>
+              </div>
+
+              <div class="exp-project">
+                <div class="exp-project-title">AI-Powered Meeting Automation Agent</div>
+                <ul class="exp-bullets">
+                  <li>Built a workflow that detects meeting intent from email replies, extracts schedule context, and creates Google Meet events automatically.</li>
+                  <li>Integrated Google OAuth 2.0, Google Calendar APIs, JWT authentication, and multi-user backend flows.</li>
+                  <li>Designed the system for scalability with background processing and reusable service patterns.</li>
+                </ul>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="container">
+        <p class="section-label reveal">Skills</p>
+        <h2 class="section-title reveal">Technical stack with a backend-first mindset</h2>
+        <p class="section-copy reveal">
+          I work comfortably across API design, Python frameworks, databases, AI tooling, and integration-heavy product backends.
+        </p>
+        <div class="divider reveal"></div>
+
+        <div class="skills-grid">
+          <article class="skill-card reveal">
+            <div class="skill-icon">01</div>
+            <h3 class="skill-category">Languages</h3>
+            <div class="skill-tags">
+              <span class="skill-tag">Python</span>
+              <span class="skill-tag">JavaScript</span>
+              <span class="skill-tag">HTML</span>
+              <span class="skill-tag">CSS</span>
+              <span class="skill-tag">SQL</span>
+            </div>
+          </article>
+
+          <article class="skill-card reveal">
+            <div class="skill-icon">02</div>
+            <h3 class="skill-category">Frameworks &amp; APIs</h3>
+            <div class="skill-tags">
+              <span class="skill-tag">FastAPI</span>
+              <span class="skill-tag">Django</span>
+              <span class="skill-tag">DRF</span>
+              <span class="skill-tag">REST APIs</span>
+              <span class="skill-tag">JWT</span>
+            </div>
+          </article>
+
+          <article class="skill-card reveal">
+            <div class="skill-icon">03</div>
+            <h3 class="skill-category">AI &amp; ML</h3>
+            <div class="skill-tags">
+              <span class="skill-tag">Whisper</span>
+              <span class="skill-tag">LLM APIs</span>
+              <span class="skill-tag">YOLOv8</span>
+              <span class="skill-tag">OpenCV</span>
+              <span class="skill-tag">Agentic AI</span>
+            </div>
+          </article>
+
+          <article class="skill-card reveal">
+            <div class="skill-icon">04</div>
+            <h3 class="skill-category">Databases</h3>
+            <div class="skill-tags">
+              <span class="skill-tag">MySQL</span>
+              <span class="skill-tag">PostgreSQL</span>
+              <span class="skill-tag">Oracle</span>
+            </div>
+          </article>
+
+          <article class="skill-card reveal">
+            <div class="skill-icon">05</div>
+            <h3 class="skill-category">Auth &amp; Integrations</h3>
+            <div class="skill-tags">
+              <span class="skill-tag">Google OAuth 2.0</span>
+              <span class="skill-tag">Google APIs</span>
+              <span class="skill-tag">PJSUA</span>
+              <span class="skill-tag">SIP</span>
+              <span class="skill-tag">GitHub</span>
+            </div>
+          </article>
+
+          <article class="skill-card reveal">
+            <div class="skill-icon">06</div>
+            <h3 class="skill-category">Currently Exploring</h3>
+            <div class="skill-tags">
+              <span class="skill-tag">Multi-Agent Systems</span>
+              <span class="skill-tag">RAG</span>
+              <span class="skill-tag">Docker</span>
+              <span class="skill-tag">Cloud Deployment</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="container">
+        <p class="section-label reveal">Projects</p>
+        <h2 class="section-title reveal">Selected work that reflects how I build</h2>
+        <p class="section-copy reveal">
+          These projects highlight the mix of backend engineering, applied AI, and product thinking that I bring to development work.
+        </p>
+        <div class="divider reveal"></div>
+
+        <div class="projects-grid">
+          <a class="project-card reveal" href="https://github.com/nandhap095" target="_blank" rel="noreferrer">
+            <div class="project-top">
+              <span class="project-num">01</span>
+              <span class="project-link">View &#8599;</span>
+            </div>
+            <h3 class="project-name">Learning Management System</h3>
+            <p class="project-desc">
+              A scalable LMS backend focused on user workflows, course management, and secure role-based access.
+            </p>
+            <ul class="project-points">
+              <li>Designed backend flows for users, roles, and course access management.</li>
+              <li>Implemented JWT-based authentication and protected API routes.</li>
+              <li>Structured the project to support growth and cleaner admin operations.</li>
+            </ul>
+            <div class="project-stack">
+              <span class="stack-tag">Django REST</span>
+              <span class="stack-tag">MySQL</span>
+              <span class="stack-tag">JWT</span>
+            </div>
+          </a>
+
+          <a class="project-card reveal" href="https://github.com/nandhap095" target="_blank" rel="noreferrer">
+            <div class="project-top">
+              <span class="project-num">02</span>
+              <span class="project-link">View &#8599;</span>
+            </div>
+            <h3 class="project-name">Object Detection with YOLOv8</h3>
+            <p class="project-desc">
+              A real-time object detection workflow built for image and video analysis using modern computer vision tooling.
+            </p>
+            <ul class="project-points">
+              <li>Used YOLOv8 and OpenCV for accurate, responsive detection pipelines.</li>
+              <li>Handled images and video streams with practical real-time processing logic.</li>
+              <li>Focused on inference flow clarity and reusable experimentation patterns.</li>
+            </ul>
+            <div class="project-stack">
+              <span class="stack-tag">Python</span>
+              <span class="stack-tag">YOLOv8</span>
+              <span class="stack-tag">OpenCV</span>
+            </div>
+          </a>
+
+          <a class="project-card reveal" href="#hero">
+            <div class="project-top">
+              <span class="project-num">03</span>
+              <span class="project-link">Live Site</span>
+            </div>
+            <h3 class="project-name">Personal Portfolio Website</h3>
+            <p class="project-desc">
+              A responsive personal website crafted to communicate credibility, technical range, and hiring readiness.
+            </p>
+            <ul class="project-points">
+              <li>Designed a dark editorial-style interface with strong typography and motion.</li>
+              <li>Added a portfolio assistant for guided visitor interactions.</li>
+              <li>Structured the page for mobile responsiveness and fast scanning.</li>
+            </ul>
+            <div class="project-stack">
+              <span class="stack-tag">HTML</span>
+              <span class="stack-tag">CSS</span>
+              <span class="stack-tag">JavaScript</span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section id="education">
+      <div class="container">
+        <p class="section-label reveal">Education</p>
+        <h2 class="section-title reveal">Academic background and training</h2>
+        <p class="section-copy reveal">
+          My foundation combines formal engineering education with focused full-stack and backend-oriented software training.
+        </p>
+        <div class="divider reveal"></div>
+
+        <div class="edu-grid">
+          <article class="edu-card reveal">
+            <h3 class="edu-degree">B.Tech in Electronics &amp; Communication Engineering</h3>
+            <div class="edu-institute">Dr. M.G.R. Educational And Research Institute &middot; Chennai</div>
+            <div class="edu-meta">June 2021 &mdash; May 2024 &middot; CGPA: 7.5</div>
+            <span class="edu-tag">Undergraduate</span>
+          </article>
+
+          <article class="edu-card reveal">
+            <h3 class="edu-degree">Diploma in Electronics</h3>
+            <div class="edu-institute">Nettur Technical Training Foundation &middot; Bangalore</div>
+            <div class="edu-meta">June 2017 &mdash; June 2020 &middot; 69%</div>
+            <span class="edu-tag">Diploma</span>
+          </article>
+
+          <article class="edu-card reveal">
+            <h3 class="edu-degree">Python Full Stack Development</h3>
+            <div class="edu-institute">PySpiders Training Institute &middot; Bangalore</div>
+            <div class="edu-meta">June 2024 &mdash; January 2025</div>
+            <span class="edu-tag">Professional Certification</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="contact-shell">
+          <div class="contact-copy reveal">
+            <p class="section-label">Contact</p>
+            <h2 class="section-title">Open to backend and AI-focused opportunities</h2>
+            <div class="divider"></div>
+            <p>
+              I am currently open to full-time roles, backend freelance work, and collaborations involving APIs, automation, or AI-powered product systems.
+            </p>
+            <p>
+              If you're building something that needs strong backend foundations, clean integrations, or practical AI features, I'd be happy to connect.
+            </p>
+            <div class="contact-actions">
+              <a href="mailto:nandhap095@gmail.com" class="btn-primary">Email Me</a>
+              <a href="tel:+919345649544" class="btn-outline">Call Me</a>
+            </div>
+          </div>
+
+          <aside class="contact-card reveal">
+            <div class="contact-item">
+              <div class="contact-label">Email</div>
+              <div class="contact-value"><a href="mailto:nandhap095@gmail.com">nandhap095@gmail.com</a></div>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-label">Phone</div>
+              <div class="contact-value"><a href="tel:+919345649544">+91 93456 49544</a></div>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-label">Location</div>
+              <div class="contact-value">Bangalore, Karnataka, India</div>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-label">Profiles</div>
+              <div class="social-links">
+                <a class="social-link" href="https://linkedin.com/in/nandhakumar-p-8753731a7" target="_blank" rel="noreferrer">LinkedIn &#8599;</a>
+                <a class="social-link" href="https://github.com/nandhap095" target="_blank" rel="noreferrer">GitHub &#8599;</a>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <span>&copy; 2026 Nandhakumar P</span>
+      <span>Python Developer &middot; Backend Systems &middot; Bangalore, India</span>
+    </div>
+  </footer>
+
+  <button class="back-to-top" id="back-to-top" type="button" aria-label="Back to top">&#8593;</button>
+
+  <button class="chatbot-launcher" id="chatbot-launcher" type="button" aria-label="Open portfolio assistant" aria-expanded="false">
+    NP
+  </button>
+
+  <aside class="chatbot-panel" id="chatbot-panel" aria-hidden="true">
+    <div class="chatbot-header">
+      <div>
+        <div class="chatbot-title">Portfolio Assistant</div>
+        <div class="chatbot-subtitle">Ask about skills, projects, experience, or how to contact Nandhakumar.</div>
+      </div>
+      <button class="chatbot-close" id="chatbot-close" type="button" aria-label="Close portfolio assistant">&times;</button>
+    </div>
+    <div class="chatbot-messages" id="chatbot-messages">
+      <div class="chatbot-message bot">
+        Hi, I'm Nandhakumar's portfolio assistant. I can guide visitors through his backend experience, AI work, projects, and contact details.
+      </div>
+    </div>
+    <div class="chatbot-suggestions" id="chatbot-suggestions">
+      <button class="chatbot-chip" type="button" data-question="Tell me about Nandhakumar">About</button>
+      <button class="chatbot-chip" type="button" data-question="Tell me about his experience">Experience</button>
+      <button class="chatbot-chip" type="button" data-question="What skills does he have?">Skills</button>
+      <button class="chatbot-chip" type="button" data-question="What projects has he built?">Projects</button>
+      <button class="chatbot-chip" type="button" data-question="Tell me about his education">Education</button>
+      <button class="chatbot-chip" type="button" data-question="How can I contact him?">Contact</button>
+    </div>
+    <form class="chatbot-form" id="chatbot-form">
+      <div class="chatbot-input-row">
+        <input
+          class="chatbot-input"
+          id="chatbot-input"
+          type="text"
+          name="message"
+          placeholder="Ask about FastAPI, projects, AI tools..."
+          autocomplete="off"
+        />
+        <button class="chatbot-send" type="submit">Send</button>
+      </div>
+      <div class="chatbot-hint">Try: "Tell me about his experience", "What skills does he have?", "How can I contact him?"</div>
+    </form>
+  </aside>
+
+  <script>
+    const reveals = document.querySelectorAll(".reveal");
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry, index) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => entry.target.classList.add("visible"), index * 65);
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    reveals.forEach((element) => revealObserver.observe(element));
+
+    const siteNav = document.getElementById("site-nav");
+    const navToggle = document.getElementById("nav-toggle");
+    const navLinks = document.querySelectorAll(".nav-links a");
+    const sections = document.querySelectorAll("main section[id]");
+    const backToTop = document.getElementById("back-to-top");
+
+    navToggle.addEventListener("click", () => {
+      const isOpen = siteNav.classList.toggle("open");
+      navToggle.setAttribute("aria-expanded", String(isOpen));
+    });
+
+    navLinks.forEach((link) => {
+      link.addEventListener("click", () => {
+        siteNav.classList.remove("open");
+        navToggle.setAttribute("aria-expanded", "false");
+      });
+    });
+
+    const sectionObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        const id = entry.target.getAttribute("id");
+        navLinks.forEach((link) => {
+          const isActive = link.getAttribute("href") === `#${id}`;
+          link.classList.toggle("active", isActive);
+        });
+      });
+    }, { rootMargin: "-35% 0px -45% 0px", threshold: 0 });
+    sections.forEach((section) => sectionObserver.observe(section));
+
+    window.addEventListener("scroll", () => {
+      backToTop.classList.toggle("visible", window.scrollY > 500);
+    });
+
+    backToTop.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+
+    const chatbotLauncher = document.getElementById("chatbot-launcher");
+    const chatbotPanel = document.getElementById("chatbot-panel");
+    const chatbotClose = document.getElementById("chatbot-close");
+    const chatbotMessages = document.getElementById("chatbot-messages");
+    const chatbotForm = document.getElementById("chatbot-form");
+    const chatbotInput = document.getElementById("chatbot-input");
+    const chatbotSuggestions = document.getElementById("chatbot-suggestions");
+
+    const portfolioKnowledge = {
+      name: "Nandhakumar P",
+      role: "Python Developer",
+      location: "Bangalore, Karnataka, India",
+      availability: "open to full-time roles, backend freelance work, and AI or ML collaborations.",
+      summary: "Nandhakumar is a Python developer focused on backend engineering, API design, and practical AI-enabled product systems.",
+      contact: {
+        email: "nandhap095@gmail.com",
+        phone: "+91 93456 49544",
+        linkedin: "https://linkedin.com/in/nandhakumar-p-8753731a7",
+        github: "https://github.com/nandhap095"
+      },
+      projects: [
+        "Learning Management System built with Django REST, MySQL, and JWT-based authentication.",
+        "YOLOv8 object detection workflow for real-time image and video analysis.",
+        "Voice-to-text platform using OpenAI Whisper and FastAPI.",
+        "VoIP call handling backend with FastAPI, PJSUA, and SIP integration.",
+        "AI-powered meeting automation workflow using Google OAuth, Calendar APIs, and JWT auth."
+      ],
+      skills: [
+        "Python", "FastAPI", "Django", "Django REST Framework", "REST APIs",
+        "JWT", "MySQL", "PostgreSQL", "OpenAI Whisper", "YOLOv8", "OpenCV", "Google OAuth 2.0"
+      ],
+      experience: [
+        "Python Developer at Lookupitsolutions, a division of Dualapp Technologies Pvt. Ltd, since May 2025.",
+        "Builds FastAPI APIs for transcription, telephony, and automation workflows.",
+        "Works on backend services involving authentication, integrations, and multi-user product logic.",
+        "Applies AI tools like Whisper, YOLOv8, OpenCV, and LLM APIs in product-style systems."
+      ],
+      education: [
+        "B.Tech in Electronics and Communication Engineering from Dr. M.G.R. Educational And Research Institute, Chennai.",
+        "Diploma in Electronics from Nettur Technical Training Foundation, Bangalore.",
+        "Python Full Stack Development certification from PySpiders Training Institute, Bangalore."
+      ]
+    };
+
+    const sectionMap = {
+      about: "#about",
+      experience: "#experience",
+      skills: "#skills",
+      projects: "#projects",
+      education: "#education",
+      contact: "#contact"
+    };
+
+    function setChatOpen(isOpen) {
+      chatbotPanel.classList.toggle("open", isOpen);
+      chatbotPanel.setAttribute("aria-hidden", String(!isOpen));
+      chatbotLauncher.setAttribute("aria-expanded", String(isOpen));
+      if (isOpen) {
+        window.setTimeout(() => chatbotInput.focus(), 100);
+      }
+    }
+
+    function appendMessage(content, sender) {
+      const message = document.createElement("div");
+      message.className = `chatbot-message ${sender}`;
+      message.textContent = content;
+      chatbotMessages.appendChild(message);
+      chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+    }
+
+    function scrollToSection(selector) {
+      const target = document.querySelector(selector);
+      if (target) {
+        target.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    }
+
+    function detectIntent(message) {
+      const text = message.toLowerCase();
+
+      if (text.includes("contact") || text.includes("email") || text.includes("phone") || text.includes("linkedin") || text.includes("github")) {
+        return "contact";
+      }
+      if (text.includes("experience") || text.includes("worked") || text.includes("career") || text.includes("job") || text.includes("company")) {
+        return "experience";
+      }
+      if (text.includes("project") || text.includes("built") || text.includes("portfolio")) {
+        return "projects";
+      }
+      if (text.includes("skill") || text.includes("stack") || text.includes("technology") || text.includes("fastapi") || text.includes("django")) {
+        return "skills";
+      }
+      if (text.includes("backend") || text.includes("api") || text.includes("ai") || text.includes("whisper") || text.includes("yolo")) {
+        return "experience";
+      }
+      if (text.includes("education") || text.includes("degree") || text.includes("certification") || text.includes("college") || text.includes("study")) {
+        return "education";
+      }
+      if (text.includes("hire") || text.includes("available") || text.includes("opportunity")) {
+        return "availability";
+      }
+      if (text.includes("who") || text.includes("about") || text.includes("introduce") || text.includes("nandhakumar")) {
+        return "about";
+      }
+      return "fallback";
+    }
+
+    function buildReply(message) {
+      const intent = detectIntent(message);
+
+      if (intent === "about") {
+        scrollToSection(sectionMap.about);
+        return `${portfolioKnowledge.summary}\n\nHe is based in ${portfolioKnowledge.location} and is currently ${portfolioKnowledge.availability}`;
+      }
+
+      if (intent === "projects") {
+        scrollToSection(sectionMap.projects);
+        return `Here are a few standout projects:\n\n${portfolioKnowledge.projects.join("\n")}`;
+      }
+
+      if (intent === "skills") {
+        scrollToSection(sectionMap.skills);
+        return `His core technical stack includes ${portfolioKnowledge.skills.join(", ")}. He is especially strong in backend APIs and applied AI integrations.`;
+      }
+
+      if (intent === "experience") {
+        scrollToSection(sectionMap.experience);
+        return `Here is his experience summary:\n\n${portfolioKnowledge.experience.join("\n")}`;
+      }
+
+      if (intent === "education") {
+        scrollToSection(sectionMap.education);
+        return `Here is his education background:\n\n${portfolioKnowledge.education.join("\n")}`;
+      }
+
+      if (intent === "availability") {
+        scrollToSection(sectionMap.contact);
+        return `Yes. ${portfolioKnowledge.name} is currently ${portfolioKnowledge.availability}`;
+      }
+
+      if (intent === "contact") {
+        scrollToSection(sectionMap.contact);
+        return `You can reach ${portfolioKnowledge.name} here:\n\nEmail: ${portfolioKnowledge.contact.email}\nPhone: ${portfolioKnowledge.contact.phone}\nLinkedIn: ${portfolioKnowledge.contact.linkedin}\nGitHub: ${portfolioKnowledge.contact.github}`;
+      }
+
+      return "I can help with Nandhakumar's about section, experience, skills, projects, education, and contact details.\n\nTry asking:\nTell me about his experience\nWhat skills does he have?\nWhat projects has he built?\nTell me about his education\nHow can I contact him?";
+    }
+
+    function handleUserMessage(rawMessage) {
+      const message = rawMessage.trim();
+      if (!message) return;
+
+      appendMessage(message, "user");
+      const reply = buildReply(message);
+
+      window.setTimeout(() => {
+        appendMessage(reply, "bot");
+      }, 250);
+    }
+
+    chatbotLauncher.addEventListener("click", () => {
+      setChatOpen(!chatbotPanel.classList.contains("open"));
+    });
+
+    chatbotClose.addEventListener("click", () => setChatOpen(false));
+
+    chatbotForm.addEventListener("submit", (event) => {
+      event.preventDefault();
+      handleUserMessage(chatbotInput.value);
+      chatbotInput.value = "";
+    });
+
+    chatbotSuggestions.addEventListener("click", (event) => {
+      const chip = event.target.closest("[data-question]");
+      if (!chip) return;
+      setChatOpen(true);
+      handleUserMessage(chip.getAttribute("data-question"));
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") {
+        setChatOpen(false);
+      }
+    });
+  </script>
+</body>
+</html>
+
+

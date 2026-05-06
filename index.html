@@ -1155,19 +1155,48 @@
     }
 
     .chatbot-send {
-      border: 0;
-      background: var(--gold);
+      border: 1px solid rgba(236, 212, 143, 0.22);
+      background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
       color: #111;
-      padding: 0.9rem 1.1rem;
+      padding: 0.82rem 0.95rem;
       cursor: pointer;
-      font-size: 0.76rem;
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
+      min-width: 52px;
+      min-height: 52px;
+      border-radius: 16px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 12px 24px rgba(201, 168, 76, 0.22);
+      transition: transform 0.22s ease, box-shadow 0.22s ease, filter 0.22s ease;
     }
 
     .chatbot-send:hover {
-      background: var(--gold-light);
+      transform: translateY(-1px);
+      box-shadow: 0 16px 28px rgba(201, 168, 76, 0.28);
+      filter: brightness(1.03);
+    }
+
+    .chatbot-send:focus-visible {
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(201, 168, 76, 0.14), 0 16px 28px rgba(201, 168, 76, 0.24);
+    }
+
+    .chatbot-send-icon {
+      font-size: 1rem;
+      line-height: 1;
+      transform: translateX(1px);
+    }
+
+    .chatbot-send-label {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
     }
 
     .chatbot-hint {
@@ -1394,6 +1423,7 @@
       .chatbot-send {
         width: 100%;
         min-height: 46px;
+        border-radius: 14px;
       }
 
       .chatbot-hint {
@@ -1474,7 +1504,7 @@
               <span class="metric-label">Backend Focus</span>
             </div>
             <div class="metric-card">
-              <span class="metric-value">Django Rest Framework</span>
+              <span class="metric-value">DRF &amp; APIs</span>
               <span class="metric-label">Backend Focus</span>
             </div>
           </div>
@@ -1886,7 +1916,10 @@
           placeholder="Ask about FastAPI, projects, AI tools..."
           autocomplete="off"
         />
-        <button class="chatbot-send" type="submit">Send</button>
+        <button class="chatbot-send" type="submit" aria-label="Send message">
+          <span class="chatbot-send-label">Send</span>
+          <span class="chatbot-send-icon">&#8593;</span>
+        </button>
       </div>
       <div class="chatbot-hint">Try: "Tell me about his experience", "What skills does he have?", "How can I contact him?"</div>
     </form>
